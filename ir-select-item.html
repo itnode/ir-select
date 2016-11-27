@@ -34,11 +34,12 @@ Part of ir-select, tagging-style multiselect box for Polymer 1.0
 		color : #333;
 	}
 	.ir-select-item-default {
-		border : 1px solid lightgrey;
+		border : 1px inset #eee;
 		margin-right : 3px;
 		transition : all .05s;
 		display : inline-block;
-		padding : 3px;
+		padding : 4px 8px;
+        background: #fff;
 	}
 	.ir-select-item-focus {
 		border : 1px solid #aaa;		
@@ -93,7 +94,7 @@ Fired when ir-select-item is attached to DOM.
 		},
 		_labelChanged : function() {
 			Polymer.dom(this).innerHTML = this.label;
-			console.log('setting label', this.label);
+			//console.log('setting label', this.label);
 		},
 		/** 
 		* Get object representation of the item.
