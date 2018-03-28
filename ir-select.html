@@ -1,5 +1,5 @@
 <link rel="import" href="../iron-ajax/iron-ajax.html">
-<link rel="import" href="../iron-input/iron-input.html">	
+<link rel="import" href="../iron-input/iron-input.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../iron-selector/iron-selector.html">
 <link rel="import" href="../iron-dropdown/iron-dropdown.html">
@@ -29,15 +29,15 @@ Integrates with native form posting values upon submit as expected - no addition
 					data-source="http://example.com/"
 					query-by-label="fields=title&query=.*[query].*"
 					query-by-value="fields=id&q="
-					
+
 					min-length="3"
-					
+
 					data-path="envelope.data"
 					value-path="value"
 					label-path="label"
-					
+
 					prevent-default="true"
-					
+
 					name="mySelectBox"
 					clone-to-native="true"
 
@@ -61,7 +61,7 @@ Integrates with native form posting values upon submit as expected - no addition
 
 <a name="native-form-integration"></a>
 #### Native form integration
-You might have been puzzled about how exactly a non-native component may be submitted as part of a static form. You might also be aware that it's not possibble to append child elements to input elements. Thus it's not possible to enrich an input with shadow dom. 
+You might have been puzzled about how exactly a non-native component may be submitted as part of a static form. You might also be aware that it's not possibble to append child elements to input elements. Thus it's not possible to enrich an input with shadow dom.
 
 iron-select solves this by adding a hidden native input to the  form it belongs to, and reflecting its `.value` property to the hidden field. The name of the hidden field is determined by iron-input's `.name` property. You know the rest of the story.
 Granted, this somewhat breaks the encapsulation and further experiments will show whether it's possible to have the input under iron-select's own light dom. However the benefits of not having to have any further js processing of the element overweigh this (subtle? temporary?) downside.
@@ -101,19 +101,19 @@ Issues and pull requests are most welcome. Fork it [here](https://github.com/Igo
 @demo demo/index.html
 -->
 <dom-module id="ir-select">
-  <style>
-    :host {	
-      display: block;
-    }
 
-    @media (max-width: 600px) {
-      h1.paper-font-display1 {
-        font-size: 24px;
-      }
-    }
-  </style>
   <template>
-	<style>
+
+    <style>
+      :host {
+        display: block;
+      }
+
+      @media (max-width: 600px) {
+        h1.paper-font-display1 {
+          font-size: 24px;
+        }
+      }
 		#selectorContainer {
 			padding : 2px;
 		}
@@ -122,16 +122,16 @@ Issues and pull requests are most welcome. Fork it [here](https://github.com/Igo
 			padding : 1px;
 			margin : 3px;
 		}
-		input {
+		::slotted(.input) {
 			border : none;
 			border-bottom : 1px solid lightgrey
 		}
-		input:focus {
+		::slotted(.input):focus {
 			border : 0;
 			outline : none;
 			border-bottom : 1px solid lightgrey;
 		}
-		
+
 		paper-menu {
 			--paper-item-focused : {
 				background-color : transparent;
@@ -143,7 +143,7 @@ Issues and pull requests are most welcome. Fork it [here](https://github.com/Igo
 				background-color : transparent;
 			}
 		}
-		
+
 		#inputDiv iron-selector {
 			background : #ddd;
 		}
@@ -152,16 +152,16 @@ Issues and pull requests are most welcome. Fork it [here](https://github.com/Igo
 			box-shadow : 0 0 1px #555;
 			transform : translate(-1px,-1px);
 		}
-		
+
 		#inputDiv iron-selector div {
 			padding : 2px;
 			/* background : #fafafa; */
 		}
-		
+
 		#inputDiv {
 			padding : 0;
 		}
-				
+
 		#selectBox div
 		{
 			cursor : default;
@@ -169,10 +169,13 @@ Issues and pull requests are most welcome. Fork it [here](https://github.com/Igo
 	</style>
 
     <div id="inputDiv" class="iron-font-body2">
-		<content select="ir-select-item">
+		<!--content select="ir-select-item">
 		</content>
 		<content select="input">
-		</content>
+		</content-->
+		<slot name="ir-select-item"></slot>
+		<slot name="input"></slot>
+
 		<iron-dropdown on-click="clickedSuggestion" on-iron-overlay-closed="_onOverlayClosed" on-iron-overlay-opened="_onOverlayOpened" vertical-align='top' vertical-offset="25" id='overlay'>
 			<paper-menu class="dropdown-content" id='selectBox'>
 				<template is="dom-repeat" items="{{ suggestions }}">
@@ -180,7 +183,7 @@ Issues and pull requests are most welcome. Fork it [here](https://github.com/Igo
 				</template>
 			</paper-menu>
 		</iron-dropdown>
-		
+
 		<iron-ajax
 			id="optionsLoader"
 			url=""

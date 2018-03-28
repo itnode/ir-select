@@ -1,0 +1,1517 @@
+{
+  "schema_version": "1.0.0",
+  "elements": [
+    {
+      "description": "# ir-select-item\n\n# Single item elements for ir-select\nPart of ir-select, tagging-style multiselect box for Polymer 1.0",
+      "summary": "",
+      "path": "ir-select-item.html",
+      "properties": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": "value of the item",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 70,
+              "column": 3
+            },
+            "end": {
+              "line": 70,
+              "column": 54
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "\"\""
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "label of the item",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 72,
+              "column": 3
+            },
+            "end": {
+              "line": 72,
+              "column": 83
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "observer": "\"_labelChanged\""
+            }
+          },
+          "defaultValue": "\"\""
+        }
+      ],
+      "methods": [
+        {
+          "name": "close",
+          "description": "Close the label - only fires the item-close event",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 86,
+              "column": 2
+            },
+            "end": {
+              "line": 93,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_labelChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 94,
+              "column": 2
+            },
+            "end": {
+              "line": 97,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "toObject",
+          "description": "Get object representation of the item.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 105,
+              "column": 2
+            },
+            "end": {
+              "line": 111,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "labelPath",
+              "type": "string",
+              "description": "object path to label, defaults to 'label'."
+            },
+            {
+              "name": "valuePath",
+              "type": "string",
+              "description": "object path to value, defaults to 'value'."
+            }
+          ],
+          "return": {
+            "type": "Object",
+            "desc": "item label and value at labelPath and valuePath respectively"
+          }
+        },
+        {
+          "name": "focus",
+          "description": "Adds `ir-select-item-focus` class to the element.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 113,
+              "column": 2
+            },
+            "end": {
+              "line": 116,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "blur",
+          "description": "Removes `ir-select-item-focus` class from the element.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 119,
+              "column": 2
+            },
+            "end": {
+              "line": 121,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "ready",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 122,
+              "column": 2
+            },
+            "end": {
+              "line": 130,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 66,
+          "column": 9
+        },
+        "end": {
+          "line": 131,
+          "column": 2
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "attributes": [
+        {
+          "name": "value",
+          "description": "value of the item",
+          "sourceRange": {
+            "start": {
+              "line": 70,
+              "column": 3
+            },
+            "end": {
+              "line": 70,
+              "column": 54
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "label",
+          "description": "label of the item",
+          "sourceRange": {
+            "start": {
+              "line": 72,
+              "column": 3
+            },
+            "end": {
+              "line": 72,
+              "column": 83
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "item-attached",
+          "description": "item-attached",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "item-close",
+          "description": "item-close",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "value-changed",
+          "description": "Fired when the `value` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "label-changed",
+          "description": "Fired when the `label` property changes.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "ir-select-item"
+    },
+    {
+      "description": "# ir-select\n\n# Tagging-style multiselect box for Polymer 1.0\n\nThis is a tagging-style custom element built entirely from the ground up on [Polymer](http://www.polymer-project.org) and iron-components.\nAims to provide the same functionality as Selectize, Chosen2 and friends, using only vanilla JS and Polymer.\n\nIntegrates with native form posting values upon submit as expected - no additional code required ([but how?](#native-form-integration)).\n\n## Usage\n\n        <ir-select\n          placeholder=\"Type a tag...\"\n          data-source=\"http://example.com/\"\n          query-by-label=\"fields=title&query=.*[query].*\"\n          query-by-value=\"fields=id&q=\"\n          \n          min-length=\"3\"\n          \n          data-path=\"envelope.data\"\n          value-path=\"value\"\n          label-path=\"label\"\n          \n          prevent-default=\"true\"\n          \n          name=\"mySelectBox\"\n          clone-to-native=\"true\"\n\n          allow-create=\"false\"\n        >\n          <ir-select-item label=\"label1\" value=\"24\"></iron-select-item>\n          <ir-select-item label=\"label2\" value=\"42\"></iron-select-item\n        </ir-select>\n\n\n### Setting selection\n- Preset in DOM: upon initialization (on 'ready') ir-select will pick up its Light DOM for `ir-select-item` elements and update its value accordingly. Use standard DOM operations to add/remove `iron-select-item`-s during runtime and iron-select will update its value instantly.\n- Add and remove ir-select-items dynamically during runtime and the component will update its values\n- Use `.setSelection()` to replace the entire set of selected items\n\n### Getting selection\n#### Dynamic integration\n- The `.value` property, is always up to date, with a comma-separated list of values. If allowCreate is true `.value` may also contain labels - in such case it's up to the user to be able to tell labels from values.\n- .getSelected() retuns an array of objects with labels and values at labelPath and valuePath respectively\n- Events are fired for various conditions - see below.\n\n<a name=\"native-form-integration\"></a>\n#### Native form integration\nYou might have been puzzled about how exactly a non-native component may be submitted as part of a static form. You might also be aware that it's not possibble to append child elements to input elements. Thus it's not possible to enrich an input with shadow dom. \n\niron-select solves this by adding a hidden native input to the  form it belongs to, and reflecting its `.value` property to the hidden field. The name of the hidden field is determined by iron-input's `.name` property. You know the rest of the story.\nGranted, this somewhat breaks the encapsulation and further experiments will show whether it's possible to have the input under iron-select's own light dom. However the benefits of not having to have any further js processing of the element overweigh this (subtle? temporary?) downside.\n\n## Events\n- item-added, item-removed speak for themselves\n- change is fired when item was added or removed, after the more specific events above.\n- item-duplicate will fire when a duplicate is being added\n- item-unknown will fire when an item without value at valuePath is being added\n\n## Style\nMinimal styling is set internally.\n\n- `iron-select-item` elements live in the Light DOM they may be styled by component user just like any element.\n- Use `.ir-select-item-focus` class to to style item in focus.\n\nThe intent is to make the component fully customizable.\n\n## User navigation\nAs expected:\n- Left and right keys navigate selected items, backspace deletes the selection in focus\n- Up and down keys navigate suggestions, Enter selects highlighter suggestion\n\n\n## Key todos\n- Option for visual feedback on duplicates and unknowns\n- Style customization\n- \"Offline\" suggestions from a predefined range of choices a-la native select\n- Tests\n\n## Contribution\nIssues and pull requests are most welcome. Fork it [here](https://github.com/IgorRubinovich/ir-select).",
+      "summary": "",
+      "path": "ir-select.js",
+      "properties": [
+        {
+          "name": "preType",
+          "type": "string",
+          "description": "Value to look for when the input box is empty",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 639,
+              "column": 3
+            },
+            "end": {
+              "line": 639,
+              "column": 65
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "\"\""
+        },
+        {
+          "name": "selected",
+          "type": "Array",
+          "description": "Selects an entirely new set of values, old values are lost",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 642,
+              "column": 3
+            },
+            "end": {
+              "line": 642,
+              "column": 65
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "[]"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "input placeholder",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 645,
+              "column": 3
+            },
+            "end": {
+              "line": 645,
+              "column": 74
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "\"type a tag\""
+        },
+        {
+          "name": "maxItems",
+          "type": "number",
+          "description": "Maximum number of items that can be selected. -1 means unlimited. 1 allows automatic replacement of selection.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 648,
+              "column": 3
+            },
+            "end": {
+              "line": 648,
+              "column": 64
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "-1"
+        },
+        {
+          "name": "maxSuggestions",
+          "type": "number",
+          "description": "Maximum number of items that can be selected. -1 means unlimited. 1 allows automatic replacement of selection.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 651,
+              "column": 3
+            },
+            "end": {
+              "line": 651,
+              "column": 67
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "10"
+        },
+        {
+          "name": "dataSource",
+          "type": "string",
+          "description": "Url to query",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 654,
+              "column": 3
+            },
+            "end": {
+              "line": 654,
+              "column": 66
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "\"\""
+        },
+        {
+          "name": "queryByLabel",
+          "type": "string",
+          "description": "Querystring template to query suggestions by label. If contains the string `\"[query]\"` it will be replaced by the\nquery value, otherwise query is appended to queryByLabel.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 659,
+              "column": 3
+            },
+            "end": {
+              "line": 659,
+              "column": 64
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "\"\""
+        },
+        {
+          "name": "queryByValue",
+          "type": "string",
+          "description": "Querystring template to query suggestions by value. If contains the string `\"[query]\"` it will be replaced by the\nquery value, otherwise query is appended to queryByValue.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 665,
+              "column": 3
+            },
+            "end": {
+              "line": 665,
+              "column": 64
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "\"\""
+        },
+        {
+          "name": "minLength",
+          "type": "number",
+          "description": "Minimum length of search query required to send a request to the server",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 668,
+              "column": 3
+            },
+            "end": {
+              "line": 668,
+              "column": 64
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "3"
+        },
+        {
+          "name": "dataPath",
+          "type": "string",
+          "description": "Object path to label field on received objects, default is \"label\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 671,
+              "column": 3
+            },
+            "end": {
+              "line": 671,
+              "column": 63
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "\"\""
+        },
+        {
+          "name": "labelPath",
+          "type": "string",
+          "description": "Object path to label field on received objects, default is \"label\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 674,
+              "column": 3
+            },
+            "end": {
+              "line": 674,
+              "column": 68
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "\"label\""
+        },
+        {
+          "name": "valuePath",
+          "type": "string",
+          "description": "Object path to value field on received objects, default is \"value\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 677,
+              "column": 3
+            },
+            "end": {
+              "line": 677,
+              "column": 68
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "\"value\""
+        },
+        {
+          "name": "suggestions",
+          "type": "string",
+          "description": "Computed property equal to suggested options at dataPath",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 680,
+              "column": 3
+            },
+            "end": {
+              "line": 680,
+              "column": 61
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "\"\""
+        },
+        {
+          "name": "allowCreate",
+          "type": "boolean",
+          "description": "Allows adding (new) element without value. The new label will be used instead of the value in `value` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 683,
+              "column": 3
+            },
+            "end": {
+              "line": 683,
+              "column": 68
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "[read-only] a comma delimited list of \"valueField\" properties of the selected objects.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 689,
+              "column": 3
+            },
+            "end": {
+              "line": 689,
+              "column": 62
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "\"\""
+        },
+        {
+          "name": "cloneToNative",
+          "type": "boolean",
+          "description": "If cloneToNativeTarget is set ir-select value is reflected to the target element value.\n\tIf element is inside a &lt;form&gt; tag and has a name set, a sibling hidden element with the same name is created and \n\tits value is updated to reflect the ir-select element value.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 696,
+              "column": 3
+            },
+            "end": {
+              "line": 696,
+              "column": 53
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "true"
+        },
+        {
+          "name": "cloneToNativeTarget",
+          "type": "string",
+          "description": "If cloneToNative is true this selector will be used as target. Must have a `.value` property (like an input field)",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 698,
+              "column": 3
+            },
+            "end": {
+              "line": 698,
+              "column": 44
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Specifies input name, has effect when `.cloneToNative` is true and the element is inside a form.\nUnder the hood a hidden &lt;input&gt; element with this name is created under the form dom to be submitted\nlike a regular input element. The value of the hidden element reflects the current ir-select's .value property.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 705,
+              "column": 3
+            },
+            "end": {
+              "line": 705,
+              "column": 43
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "\"\""
+        }
+      ],
+      "methods": [
+        {
+          "name": "_handleControlKeys",
+          "description": "Handles control characters upon keydown in the textbox.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 49,
+              "column": 2
+            },
+            "end": {
+              "line": 180,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e"
+            }
+          ]
+        },
+        {
+          "name": "_handleTyping",
+          "description": "Handles alphanumeric on keyup in textbox.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 187,
+              "column": 2
+            },
+            "end": {
+              "line": 195,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e"
+            }
+          ]
+        },
+        {
+          "name": "_loadSuggestions",
+          "description": "Initiates loading of suggestions by optionsLoader",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 204,
+              "column": 2
+            },
+            "end": {
+              "line": 224,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "showOverlay",
+              "description": "show or not the overlay upon load, true by default"
+            }
+          ]
+        },
+        {
+          "name": "_showOverlay",
+          "description": "show suggestions dropdown",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 232,
+              "column": 2
+            },
+            "end": {
+              "line": 256,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_onOverlayClosed",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 258,
+              "column": 2
+            },
+            "end": {
+              "line": 262,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "ev"
+            }
+          ]
+        },
+        {
+          "name": "_onOverlayOpened",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 264,
+              "column": 2
+            },
+            "end": {
+              "line": 268,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_setPreselectedOptions",
+          "description": "Picks up `ir-select-item`s that are part of the local DOM during initialization",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 276,
+              "column": 2
+            },
+            "end": {
+              "line": 286,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_getChildren",
+          "description": "Shortcut method to access all items in content (ir-select-item and input only)",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 293,
+              "column": 2
+            },
+            "end": {
+              "line": 296,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "getChildItems",
+          "description": "Returns selection of ir-select-item elements in the light DOM.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 302,
+              "column": 2
+            },
+            "end": {
+              "line": 304,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "getSelected",
+          "description": "Get selected data out of the currently selected ir-select-item elements.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 312,
+              "column": 2
+            },
+            "end": {
+              "line": 321,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "Array",
+            "desc": "of objects with labels and values at labelPath and valuePath respectively"
+          }
+        },
+        {
+          "name": "getSelectedFlat",
+          "description": "Get selected data out of the currently selected ir-select-item elements - flattened to simple label-value objects, ignoring\nlabelPath and valuePath",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 331,
+              "column": 2
+            },
+            "end": {
+              "line": 340,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "Array",
+            "desc": "of objects with labels and values at o.label and o.value."
+          }
+        },
+        {
+          "name": "isSelected",
+          "description": "Check whether obj is in selection",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 350,
+              "column": 2
+            },
+            "end": {
+              "line": 365,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "obj",
+              "type": "Object",
+              "description": "an object as with label and value at labelPath and valuePath respectively"
+            }
+          ],
+          "return": {
+            "type": "Boolean",
+            "desc": "`true` if item is in selection, false otherwise"
+          }
+        },
+        {
+          "name": "addSelection",
+          "description": "Adds a single item to the selection.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 377,
+              "column": 2
+            },
+            "end": {
+              "line": 429,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "obj"
+            }
+          ],
+          "return": {
+            "type": "Boolean",
+            "desc": "True if item was added, false otherwise"
+          }
+        },
+        {
+          "name": "_addFromSelector",
+          "description": "adds selected suggestion to selection",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 435,
+              "column": 2
+            },
+            "end": {
+              "line": 457,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "item"
+            }
+          ]
+        },
+        {
+          "name": "clickedSuggestion",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 459,
+              "column": 2
+            },
+            "end": {
+              "line": 461,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e"
+            }
+          ]
+        },
+        {
+          "name": "_updateValue",
+          "description": "Updates `.value` attribute when selection changes",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 467,
+              "column": 2
+            },
+            "end": {
+              "line": 488,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_fileterSelectedFromSuggested",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 490,
+              "column": 2
+            },
+            "end": {
+              "line": 523,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "setSelection",
+          "description": "Select items defined in the array. Previous selection is lost.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 529,
+              "column": 2
+            },
+            "end": {
+              "line": 548,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "selection",
+              "type": "Array",
+              "description": "array of objects with labels and values at labelPath and valuePath respectively."
+            }
+          ]
+        },
+        {
+          "name": "attached",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 550,
+              "column": 2
+            },
+            "end": {
+              "line": 619,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_getSuggestions",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 621,
+              "column": 2
+            },
+            "end": {
+              "line": 627,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_focusSuggestion",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 629,
+              "column": 2
+            },
+            "end": {
+              "line": 631,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "ev"
+            }
+          ]
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/index.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 14,
+          "column": 9
+        },
+        "end": {
+          "line": 713,
+          "column": 2
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "attributes": [
+        {
+          "name": "pre-type",
+          "description": "Value to look for when the input box is empty",
+          "sourceRange": {
+            "start": {
+              "line": 639,
+              "column": 3
+            },
+            "end": {
+              "line": 639,
+              "column": 65
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "selected",
+          "description": "Selects an entirely new set of values, old values are lost",
+          "sourceRange": {
+            "start": {
+              "line": 642,
+              "column": 3
+            },
+            "end": {
+              "line": 642,
+              "column": 65
+            }
+          },
+          "metadata": {},
+          "type": "Array"
+        },
+        {
+          "name": "placeholder",
+          "description": "input placeholder",
+          "sourceRange": {
+            "start": {
+              "line": 645,
+              "column": 3
+            },
+            "end": {
+              "line": 645,
+              "column": 74
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "max-items",
+          "description": "Maximum number of items that can be selected. -1 means unlimited. 1 allows automatic replacement of selection.",
+          "sourceRange": {
+            "start": {
+              "line": 648,
+              "column": 3
+            },
+            "end": {
+              "line": 648,
+              "column": 64
+            }
+          },
+          "metadata": {},
+          "type": "number"
+        },
+        {
+          "name": "max-suggestions",
+          "description": "Maximum number of items that can be selected. -1 means unlimited. 1 allows automatic replacement of selection.",
+          "sourceRange": {
+            "start": {
+              "line": 651,
+              "column": 3
+            },
+            "end": {
+              "line": 651,
+              "column": 67
+            }
+          },
+          "metadata": {},
+          "type": "number"
+        },
+        {
+          "name": "data-source",
+          "description": "Url to query",
+          "sourceRange": {
+            "start": {
+              "line": 654,
+              "column": 3
+            },
+            "end": {
+              "line": 654,
+              "column": 66
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "query-by-label",
+          "description": "Querystring template to query suggestions by label. If contains the string `\"[query]\"` it will be replaced by the\nquery value, otherwise query is appended to queryByLabel.",
+          "sourceRange": {
+            "start": {
+              "line": 659,
+              "column": 3
+            },
+            "end": {
+              "line": 659,
+              "column": 64
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "query-by-value",
+          "description": "Querystring template to query suggestions by value. If contains the string `\"[query]\"` it will be replaced by the\nquery value, otherwise query is appended to queryByValue.",
+          "sourceRange": {
+            "start": {
+              "line": 665,
+              "column": 3
+            },
+            "end": {
+              "line": 665,
+              "column": 64
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "min-length",
+          "description": "Minimum length of search query required to send a request to the server",
+          "sourceRange": {
+            "start": {
+              "line": 668,
+              "column": 3
+            },
+            "end": {
+              "line": 668,
+              "column": 64
+            }
+          },
+          "metadata": {},
+          "type": "number"
+        },
+        {
+          "name": "data-path",
+          "description": "Object path to label field on received objects, default is \"label\"",
+          "sourceRange": {
+            "start": {
+              "line": 671,
+              "column": 3
+            },
+            "end": {
+              "line": 671,
+              "column": 63
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "label-path",
+          "description": "Object path to label field on received objects, default is \"label\"",
+          "sourceRange": {
+            "start": {
+              "line": 674,
+              "column": 3
+            },
+            "end": {
+              "line": 674,
+              "column": 68
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "value-path",
+          "description": "Object path to value field on received objects, default is \"value\"",
+          "sourceRange": {
+            "start": {
+              "line": 677,
+              "column": 3
+            },
+            "end": {
+              "line": 677,
+              "column": 68
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "suggestions",
+          "description": "Computed property equal to suggested options at dataPath",
+          "sourceRange": {
+            "start": {
+              "line": 680,
+              "column": 3
+            },
+            "end": {
+              "line": 680,
+              "column": 61
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "allow-create",
+          "description": "Allows adding (new) element without value. The new label will be used instead of the value in `value` property.",
+          "sourceRange": {
+            "start": {
+              "line": 683,
+              "column": 3
+            },
+            "end": {
+              "line": 683,
+              "column": 68
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "value",
+          "description": "[read-only] a comma delimited list of \"valueField\" properties of the selected objects.",
+          "sourceRange": {
+            "start": {
+              "line": 689,
+              "column": 3
+            },
+            "end": {
+              "line": 689,
+              "column": 62
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "clone-to-native",
+          "description": "If cloneToNativeTarget is set ir-select value is reflected to the target element value.\n\tIf element is inside a &lt;form&gt; tag and has a name set, a sibling hidden element with the same name is created and \n\tits value is updated to reflect the ir-select element value.",
+          "sourceRange": {
+            "start": {
+              "line": 696,
+              "column": 3
+            },
+            "end": {
+              "line": 696,
+              "column": 53
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "clone-to-native-target",
+          "description": "If cloneToNative is true this selector will be used as target. Must have a `.value` property (like an input field)",
+          "sourceRange": {
+            "start": {
+              "line": 698,
+              "column": 3
+            },
+            "end": {
+              "line": 698,
+              "column": 44
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "description": "Specifies input name, has effect when `.cloneToNative` is true and the element is inside a form.\nUnder the hood a hidden &lt;input&gt; element with this name is created under the form dom to be submitted\nlike a regular input element. The value of the hidden element reflects the current ir-select's .value property.",
+          "sourceRange": {
+            "start": {
+              "line": 705,
+              "column": 3
+            },
+            "end": {
+              "line": 705,
+              "column": 43
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "change",
+          "description": "change",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "item-added",
+          "description": "item-added",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "item-duplicate",
+          "description": "item-duplicate",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "item-overflow",
+          "description": "item-overflow",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "item-removed",
+          "description": "item-removed",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "item-unknown",
+          "description": "item-unknown",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "pre-type-changed",
+          "description": "Fired when the `preType` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "selected-changed",
+          "description": "Fired when the `selected` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "placeholder-changed",
+          "description": "Fired when the `placeholder` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "max-items-changed",
+          "description": "Fired when the `maxItems` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "max-suggestions-changed",
+          "description": "Fired when the `maxSuggestions` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "data-source-changed",
+          "description": "Fired when the `dataSource` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "query-by-label-changed",
+          "description": "Fired when the `queryByLabel` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "query-by-value-changed",
+          "description": "Fired when the `queryByValue` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "min-length-changed",
+          "description": "Fired when the `minLength` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "data-path-changed",
+          "description": "Fired when the `dataPath` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "label-path-changed",
+          "description": "Fired when the `labelPath` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "value-path-changed",
+          "description": "Fired when the `valuePath` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "suggestions-changed",
+          "description": "Fired when the `suggestions` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "allow-create-changed",
+          "description": "Fired when the `allowCreate` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "value-changed",
+          "description": "Fired when the `value` property changes.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "ir-select"
+    }
+  ]
+}

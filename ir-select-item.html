@@ -11,18 +11,20 @@ This code may only be used under the MIT license found at http://opensource.org/
 Part of ir-select, tagging-style multiselect box for Polymer 1.0
 -->
 <dom-module id="ir-select-item">
-  <style>
+  <template>
+    <style>
 	:host {
 		margin : 0;
 		padding : 0
 		transition : all 1s;
 	}
-	
-    @media (max-width: 600px) {
-      h1.paper-font-display1 {
-        font-size: 24px;
-      }
-    }
+
+        @media (max-width: 600px) {
+          h1.paper-font-display1 {
+            font-size: 24px;
+          }
+        }
+
 	iron-icon {
 		width : 15px;
 		height : 15px;
@@ -42,7 +44,7 @@ Part of ir-select, tagging-style multiselect box for Polymer 1.0
         background: #fff;
 	}
 	.ir-select-item-focus {
-		border : 1px solid #aaa;		
+		border : 1px solid #aaa;
 		transform : translate(-1px,-1px);
 		box-shadow : 0px 0px 1px #aaa;
 	}
@@ -53,11 +55,10 @@ Part of ir-select, tagging-style multiselect box for Polymer 1.0
 		transform : scaleX(0);
 		alpha : .7;
 	}
-	
-  </style>
-  <template>
+
+    </style>
 		<span id="container" class="ir-select-item-default">
-			<content></content>
+			<slot></slot>
 			<iron-icon id="close" on-click="close" icon='cancel'></iron-icon>
 		</span>
   </template>
@@ -71,7 +72,7 @@ Part of ir-select, tagging-style multiselect box for Polymer 1.0
 			value: { type : String,	value : '',	notify : true },
 			/** label of the item */
 			label: { type : String,	value : '',	notify : true, observer : "_labelChanged"  },
-		},		
+		},
 
 /*
 Fired when close is called or the close icon is clicked.
@@ -96,7 +97,7 @@ Fired when ir-select-item is attached to DOM.
 			Polymer.dom(this).innerHTML = this.label;
 			//console.log('setting label', this.label);
 		},
-		/** 
+		/**
 		* Get object representation of the item.
 
 		* @param {string} labelPath object path to label, defaults to 'label'.
@@ -115,7 +116,7 @@ Fired when ir-select-item is attached to DOM.
 			this.$.container.classList.add('ir-select-item-focus');
 			Polymer.dom.flush();
 		},
-		
+
 		/** Removes `ir-select-item-focus` class from the element. */
 		blur: function() {
 			this.$.container.classList.remove('ir-select-item-focus')
@@ -130,8 +131,8 @@ Fired when ir-select-item is attached to DOM.
 			this.fire('item-attached', this, { cancelable : true });
 		}
 	});
-	
+
 })();
-	
+
 
 </script>
