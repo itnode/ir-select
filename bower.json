@@ -1,11 +1,11 @@
 {
   "name": "ir-select",
   "main": "ir-select.html",
-  "version": "0.8.3",
+  "version": "1.0.0",
   "authors": [
     "Igor Rubinovich <igor.rubinovih@gmail.com>"
   ],
-  "description": "Tag-style multiselect box for Polymer 1.0",
+  "description": "Tag-style multiselect box for Polymer 2.0",
   "keywords": [
     "tags",
     "multiselect",
